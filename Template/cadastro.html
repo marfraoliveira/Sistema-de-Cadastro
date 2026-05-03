@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Clientes</h1>
+        <p>Esta é a página de cadastro de clientes.</p>   
+        <form id="cadastro-form" method="POST" action="{{ url_for('cadastro') }}">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+        </form>
+        <button type="submit" form="cadastro-form">Cadastrar</button>
+        <a href="{{ url_for('home') }}">Voltar para Home</a>
+ </div>
+</body>
+</html>
