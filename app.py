@@ -3,7 +3,9 @@ import sqlite3
 
 
 app = Flask(__name__,static_folder='static', template_folder='Template')
-    
+
+def mensagem():
+    return "Bem-vindo ao meu site!"    
 
 def init_tableClientes():
     conn = sqlite3.connect('clientes.db')
@@ -47,6 +49,7 @@ def sobre():
 
 if __name__ == '__main__':
     init_tableClientes()
+    print(mensagem())
     app.run(debug=True, port=5001, host='127.0.0.1')
     
     
