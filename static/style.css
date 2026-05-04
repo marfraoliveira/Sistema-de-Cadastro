@@ -3,8 +3,8 @@
     --card: #ffffff;
     --text: #1f2937;
     --muted: #6b7280;
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
+    --primary: #0048fe;
+    --primary-hover: #f1ba08;
     --border: #dbe2ea;
     --shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
 }
@@ -77,7 +77,7 @@ button,
     border: 0;
     border-radius: 10px;
     background: var(--primary);
-    color: #fff;
+    color: #430000ea;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;

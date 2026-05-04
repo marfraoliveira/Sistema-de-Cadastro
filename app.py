@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 
 
-
 app = Flask(__name__,static_folder='static', template_folder='Template')
+    
 
 def init_tableClientes():
     conn = sqlite3.connect('clientes.db')
@@ -39,10 +39,12 @@ def cadastro():
         return  jsonify({'message': f'Cliente {nome} com email {email} e logradouro: {logradouro} cadastrado com sucesso!'})
     return render_template('cadastro.html')
 
+
 @app.route('/sobre', methods=['GET'])
 def sobre():
     return render_template('sobre.html')
 
+def
 
 if __name__ == '__main__':
     init_tableClientes()
