@@ -12,7 +12,8 @@ def init_tableClientes():
         CREATE TABLE IF NOT EXISTS clientes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
-            email TEXT NOT NULL
+            email TEXT NOT NULL,
+            logradouro TEXT NOT NULL
         )
     ''')
     conn.commit()
@@ -28,14 +29,14 @@ def cadastro():
     if request.method == 'POST':
         nome = request.form.get('nome')
         email = request.form.get('email')
-        LOGRADOURO = request.form.get('logradouro')
+        logradouro = request.form.get('logradouro')
         conn = sqlite3.connect('clientes.db')
 
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO clientes (nome, email,LOGRADOURO) VALUES (?, ?)', (nome, email,LOGRADOURO))
+        cursor.execute('INSERT INTO clientes (nome, email, logradouro) VALUES (?, ?, ?)', (nome, email, logradouro))
         conn.commit()
         conn.close()
-        return  jsonify({'message': f'Cliente {nome} com email {email} cadastrado com sucesso!'})
+        return  jsonify({'message': f'Cliente {nome} com email {email} e logradouro: {logradouro} cadastrado com sucesso!'})
     return render_template('cadastro.html')
 
 @app.route('/sobre', methods=['GET'])
@@ -44,6 +45,7 @@ def sobre():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001, host='127.0.0.1')
     init_tableClientes()
+    app.run(debug=True, port=5001, host='127.0.0.1')
+    
     

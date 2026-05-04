@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Documento</title>
 </head>
+
 <body>
-<div class="container">
-    <h1>Bem-vindo ao Sistema de Cadastro de Clientes</h1>
-    <a href="{{url_for('cadastro')}}" > Ir para cadastro.</a>
-    <a href="{{ url_for('sobre') }}">Sobre Nós</a>
-</div>    
+    <div class="container">
+        <h1>Bem-vindo ao Sistema de Cadastro de Clientes</h1>
+        <p>Gerencie cadastros de forma simples e rápida.</p>
+        <div class="actions">
+            <a class="btn-link" href="{{url_for('cadastro')}}">Ir para cadastro</a>
+            <a href="{{ url_for('sobre') }}">Sobre Nós</a>
+        </div>
+    </div>
 
 </body>
+
 </html>
