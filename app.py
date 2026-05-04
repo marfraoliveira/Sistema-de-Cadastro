@@ -5,7 +5,7 @@ import sqlite3
 app = Flask(__name__,static_folder='static', template_folder='Template')
 
 def mensagem():
-    return "Bem-vindo ao meu site!"    
+    return "Bem-vindo ao meu site em flask!"    
 
 def init_tableClientes():
     conn = sqlite3.connect('clientes.db')
