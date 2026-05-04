@@ -44,7 +44,6 @@ def cadastro():
 def sobre():
     return render_template('sobre.html')
 
-def
 
 if __name__ == '__main__':
     init_tableClientes()
