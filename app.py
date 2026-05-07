@@ -7,6 +7,7 @@ app = Flask(__name__,static_folder='static', template_folder='Template')
 def mensagem():
     return "Bem-vindo ao meu site em flask!"    
 
+
 def init_tableClientes():
     conn = sqlite3.connect('clientes.db')
     cursor = conn.cursor()
@@ -22,6 +23,29 @@ def init_tableClientes():
     conn.close()
     print("Banco de dados inicializado com sucesso!")   
 
+@app.route('/listarclientes', methods = ['GET'])
+def listar_clientes():
+    conn = sqlite3.connect('clientes.db')
+    cursor = conn.cursor()
+    cursor.execute('''SELECT 
+    id,
+    nome,
+    email,
+    logradouro FROM clientes ORDER BY id ASC''')
+    clientes = cursor.fetchall()
+    conn.close()
+    
+    resultado = []
+    for c in clientes:
+        cliente = {
+            'id': c[0],
+            'nome': c[1],
+            'email' : c[2],
+            'logradouro' : c[3]
+        }
+        resultado.append(cliente)    
+    return jsonify(resultado)
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
@@ -33,7 +57,6 @@ def cadastro():
         email = request.form.get('email')
         logradouro = request.form.get('logradouro')
         conn = sqlite3.connect('clientes.db')
-
         cursor = conn.cursor()
         cursor.execute('INSERT INTO clientes (nome, email, logradouro) VALUES (?, ?, ?)', (nome, email, logradouro))
         conn.commit()
@@ -45,6 +68,7 @@ def cadastro():
 @app.route('/sobre', methods=['GET'])
 def sobre():
     return render_template('sobre.html')
+
 
 
 if __name__ == '__main__':
