@@ -43,6 +43,7 @@ h1 {
 p {
     margin: 0 0 20px;
     color: var(--muted);
+    
 }
 
 #cadastro-form {
@@ -108,4 +109,12 @@ button:active,
 
 .actions a:hover {
     text-decoration: underline;
+}
+
+
+.message {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin: 0 0 20px;
+    
 }
