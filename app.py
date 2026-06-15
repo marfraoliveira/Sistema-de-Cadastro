@@ -6,28 +6,10 @@ import hmac
 
 app = Flask(__name__,static_folder='static', template_folder='Template')
 
-@app.route('/<usuario>', methods=['GET'])
-def listarusuario(usuario):
-    return f'''
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-    body {{
-        font-family: 'Roboto', sans-serif;
-        background-color: #f0f0f0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-    }}
-    </style>
-    <p class='message'>Olá, {usuario}! Seja bem-vindo ao meu site em flask!</p>
-    '''
 
-    
-def mensagem():
-    return "Bem-vindo ao meu site em flask!"    
+@app.route('/perfil/<usuario>', methods=['GET'])
+def perfil(usuario):
+    return render_template('perfil.html', usuario=usuario)
 
 
 def autenticacao():
@@ -131,7 +113,6 @@ def sobre():
 
 if __name__ == '__main__':
     init_tableClientes()
-    print(mensagem())
     app.run(debug=True, port=5002, host='127.0.0.1')
     
     

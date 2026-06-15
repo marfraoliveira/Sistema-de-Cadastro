@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Formulário de Cadastro de Clientes</title>
 </head>
-
 <body>
+    {% block content %}
+    {% endblock %}
     <div class="container">
         <h1>Cadastro de Clientes</h1>
         <p>Esta é a página de cadastro de clientes.</p>
